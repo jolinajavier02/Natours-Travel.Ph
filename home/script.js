@@ -15,39 +15,6 @@ if (hamburger && navMenu) {
     }));
 }
 
-// Handle favorite button clicks
-function handleFavoriteClick(button) {
-    // Favorites functionality has been removed
-    showNotification('Favorites feature is no longer available', 'info');
-}
-
-
-
-// Show notification
-function showNotification(message, type = 'info') {
-    // Remove existing notifications
-    const existingNotification = document.querySelector('.notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <span>${message}</span>
-        <button onclick="this.parentElement.remove()">&times;</button>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Auto remove after 3 seconds
-    setTimeout(() => {
-        if (notification.parentElement) {
-            notification.remove();
-        }
-    }, 3000);
-}
-
 // Smooth scrolling for anchor links
 function smoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -64,21 +31,6 @@ function smoothScroll() {
     });
 }
 
-// Search functionality
-function initializeSearch() {
-    const searchInput = document.querySelector('.search-input');
-    const searchButton = document.querySelector('.search-button');
-    
-    if (searchInput && searchButton) {
-        searchButton.addEventListener('click', performSearch);
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
-            }
-        });
-    }
-}
-
 function performSearch() {
     const searchInput = document.querySelector('.search-input');
     const query = searchInput.value.trim();
@@ -88,75 +40,8 @@ function performSearch() {
         window.location.href = `src/pages/recipes?search=${encodeURIComponent(query)}`;
     }
 }
-
-// Filter functionality removed - no recipes to filter
-
-// Lazy loading for images
-function initializeLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
     
     images.forEach(img => imageObserver.observe(img));
-}
-
-// Recipe card functionality removed - no recipe cards to handle
-
-// Form validation
-function validateForm(form) {
-    const requiredFields = form.querySelectorAll('[required]');
-    let isValid = true;
-    
-    requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-            field.classList.add('error');
-            isValid = false;
-        } else {
-            field.classList.remove('error');
-        }
-    });
-    
-    return isValid;
-}
-
-// Newsletter subscription
-function initializeNewsletter() {
-    const newsletterForm = document.querySelector('.newsletter-form');
-    
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (validateForm(this)) {
-                const email = this.querySelector('input[type="email"]').value;
-                
-                // Simulate API call
-                showNotification('Thank you for subscribing to our newsletter!', 'success');
-                this.reset();
-            } else {
-                showNotification('Please fill in all required fields.', 'error');
-            }
-        });
-    }
-}
-
-// Recipe sharing functionality removed
-
-// Initialize all functionality when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    smoothScroll();
-    initializeSearch();
-    initializeLazyLoading();
-    initializeNewsletter();
     
     // Add scroll effect to header
     window.addEventListener('scroll', function() {
@@ -167,74 +52,34 @@ document.addEventListener('DOMContentLoaded', function() {
             header.classList.remove('scrolled');
         }
     });
-});
 
-// Add CSS for notifications
-const notificationStyles = `
-.notification {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    padding: 1rem 1.5rem;
-    border-radius: 8px;
-    color: white;
-    font-weight: 500;
-    z-index: 10000;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    animation: slideIn 0.3s ease;
-}
+    // --- 2. Image Slider Functionality (Automatic and Manual) ---
+    const sliders = document.querySelectorAll('.service-slider');
+    
+    sliders.forEach(slider => {
+        let currentIndex = 0;
+        const images = slider.querySelectorAll('.hero-img');
+        const totalImages = images.length;
+        const sliderId = slider.id.split('-')[1];
 
-.notification-success {
-    background: #4a7c59;
-}
+        const updateSlider = () => {
+            const offset = -currentIndex * images[0].offsetWidth;
+            slider.style.transform = `translateX(${offset}px)`;
+        };
 
-.notification-error {
-    background: #e74c3c;
-}
+        const nextSlide = () => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateSlider();
+        };
 
-.notification-info {
-    background: #3498db;
-}
+        const prevSlide = () => {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateSlider();
+        };
 
-.notification button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: 0;
-    width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.header.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-}
-
-.error {
-    border-color: #e74c3c !important;
-    box-shadow: 0 0 5px rgba(231, 76, 60, 0.3) !important;
-}
-`;
-
-// Inject notification styles
-const mainStyleSheet = document.createElement('style');
-mainStyleSheet.textContent = notificationStyles;
-document.head.appendChild(mainStyleSheet);
+        // Automatic sliding (every 4 seconds)
+        setInterval(nextSlide, 3000);
+        
+        // Handle resizing (if the window resizes, recalculate offset)
+        window.addEventListener('resize', updateSlider);
+    });
