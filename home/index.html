@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="Natour-Travel">
     <title>Natours-Travel | Explore the World</title>
     <link rel="stylesheet" href="../home/style.css">
     <link rel="icon" type="image/png" href="../home/images/favicon.png">
-    </head>
-    <body>
-        <header class="header scrolled">
-            <nav class="nav bar">
-                <div class="nav-container">
-                    <div class="nav-logo">
-                        <img src="../home/images/Logo.png" alt="Natours logo" class="logo">
-                        <span class="logo-text">Natours-Travel</span>
-                    </div>
-                    <ul class="nav-menu">
-                        <li class="nav-item"><a href="/home/" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="/services/" class="nav-link">Services</a></li>
-                        <li class="nav-item"><a href="/destinations/" class="nav-link">Destinations</a></li>
-                        <li class="nav-item"><a href="/contact/" class="nav-link">Contact</a></li>
-                    </ul>
-                    <div class="hamburger">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </div>
+</head>
+
+<body>
+    <header class="header scrolled">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="../home/images/Logo.png" alt="Natours logo" class="logo">
+                    <span class="logo-text">Natours-Travel</span>
                 </div>
-            </nav>
-        </header>>
-        <main>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="../services/index.html" class="nav-link">Services</a></li>
+                    <li><a href="../guidelines/index.html" class="nav-link">Guidelines</a></li>
+                    <li><a href="../book-your-trip/index.html" class="nav-link btn-contact">Book Your Trip</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
         <section id="home" class="hero-section wave-divider-bottom">
+            <!-- Nature Background Image -->
+            <div class="hero-bg-image"></div>
+            <div class="hero-overlay"></div>
+
             <div class="hero-content container">
                 <h2 class="hero-title">Explore the World With Natours Travel</h2>
                 <p class="hero-subtitle">Your next unforgettable adventure starts here.</p>
-                <a href="/services/" class="btn btn-primary">Book Your Trip</a>
+                <a href="#contact" class="btn btn-primary hero-cta">Contact Us</a>
 
                 <div class="hero-taglines">
-                    <p>“The world is waiting. Let's fly it together.”</p>
-                    <p>“Life is short. Travel more.”</p>
+                    <p>"The world is waiting. Let's fly it together."</p>
+                    <p>"Life is short. Travel more."</p>
                 </div>
             </div>
             <svg class="wave" viewBox="0 0 1440 100" preserveAspectRatio="none">
@@ -46,16 +52,17 @@
             </svg>
         </section>
 
-       <section class="hero">
+        <section class="hero">
             <div class="container">
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1 class="hero-title">Welcome to Natours Travel!</h1>
                         <p class="hero-tag-line">Adventure is out there we’ll take you to it.</p>
-                        <p class="hero-description">We craft unforgettable journeys tailored for every Filipino traveler. Discover the world's natural beauty and hidden gems with us.</p>
+                        <p class="hero-description">We craft unforgettable journeys tailored for every Filipino
+                            traveler. Discover the world's natural beauty and hidden gems with us.</p>
                         <div class="hero-buttons">
-                            <a href="/services/" class="btn btn-primary">Explore</a>
-                            <a href="/destinations/" class="btn btn-outline">See more</a>
+                            <a href="../services/index.html" class="btn btn-primary">Explore</a>
+                            <a href="../guidelines/index.html" class="btn btn-outline">See more</a>
                         </div>
                     </div>
                     <div class="hero-image">
@@ -65,35 +72,150 @@
             </div>
         </section>
 
+        <!-- Why Natours Travel Section -->
+        <section id="why-natours" class="why-natours-section">
+            <div class="container">
+                <h3 class="section-title">Why Choose Natours Travel?</h3>
+                <p class="section-subtitle">Your trusted partner for unforgettable travel experiences</p>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h4>24/7 Customer Support</h4>
+                        <p>Round-the-clock assistance for all your travel needs. We're always here to help, anytime,
+                            anywhere.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <h4>Best Price Guarantee</h4>
+                        <p>We compare prices from multiple providers to ensure you get the best deals on flights,
+                            hotels, and tours.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                        </div>
+                        <h4>Trusted Partners</h4>
+                        <p>Accredited by Via.com and partnered with leading airlines, hotels, and tour operators
+                            worldwide.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="16" y1="2" x2="16" y2="6"></line>
+                                <line x1="8" y1="2" x2="8" y2="6"></line>
+                                <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                        </div>
+                        <h4>Flexible Booking</h4>
+                        <p>Easy rebooking, free cancellation options, and flexible payment plans to suit your travel
+                            schedule.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <h4>Local Expertise</h4>
+                        <p>Deep knowledge of Filipino travel preferences and expert guidance for both local and
+                            international destinations.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>
+                        </div>
+                        <h4>Secure Payments</h4>
+                        <p>Safe and encrypted payment processing with multiple payment options for your convenience and
+                            peace of mind.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="services-preview" class="services-preview-section">
             <div class="container">
                 <h3 class="section-title">Explore Our Travel Options</h3>
-                
+
                 <div class="service-preview-card layout-left">
                     <div class="service-slider-wrap">
-                         <div class="slider-controls">
+                        <div class="slider-controls">
                         </div>
                         <div class="service-slider" id="slider-flights">
-                            <img src="../home/images/flight1.jpg" alt="Flight Image 1" class="Flight-img">
-                            <img src="../home/images/flight2.jpg" alt="Flight Image 2" class="Flight-img">
-                            <img src="../home/images/flight3.jpg" alt="Flight Image 3" class="Flight-img">
-                            <img src="../home/images/flight4.jpg" alt="Flight Image 4" class="Flight-img">
-                            <img src="../home/images/flight5.jpg" alt="Flight Image 5" class="Flight-img">
-                            <img src="../home/images/flight6.jpg" alt="Flight Image 6" class="Flight-img">
-                            <img src="../home/images/flight7.jpg" alt="Flight Image 7" class="Flight-img">
-                            <img src="../home/images/flight8.jpg" alt="Flight Image 8" class="Flight-img">
-                            <img src="../home/images/flight9.jpg" alt="Flight Image 9" class="Flight-img">
-                            <img src="../home/images/flight10.jpg" alt="Flight Image 10" class="Flight-img">
-                            <img src="../home/images/flight11.jpg" alt="Flight Image 11" class="Flight-img">
-                            <img src="../home/images/flight12.jpg" alt="Flight Image 12" class="Flight-img">
-                            <img src="../home/images/flight13.jpg" alt="Flight Image 13" class="Flight-img">
-                            <img src="../home/images/flight14.jpg" alt="Flight Image 14" class="Flight-img">
-                            <img src="../home/images/flight15.jpg" alt="Flight Image 15" class="Flight-img">
+                            <img src="../home/images/flight1.jpg" alt="Flight Image 1" class="hero-img">
+                            <img src="../home/images/flight2.jpg" alt="Flight Image 2" class="hero-img">
+                            <img src="../home/images/flight3.jpg" alt="Flight Image 3" class="hero-img">
+                            <img src="../home/images/flight4.jpg" alt="Flight Image 4" class="hero-img">
+                            <img src="../home/images/flight5.jpg" alt="Flight Image 5" class="hero-img">
+                            <img src="../home/images/flight6.jpg" alt="Flight Image 6" class="hero-img">
+                            <img src="../home/images/flight7.jpg" alt="Flight Image 7" class="hero-img">
+                            <img src="../home/images/flight8.jpg" alt="Flight Image 8" class="hero-img">
+                            <img src="../home/images/flight9.jpg" alt="Flight Image 9" class="hero-img">
+                            <img src="../home/images/flight10.jpg" alt="Flight Image 10" class="hero-img">
+                            <img src="../home/images/flight11.jpg" alt="Flight Image 11" class="hero-img">
+                            <img src="../home/images/flight12.jpg" alt="Flight Image 12" class="hero-img">
+                            <img src="../home/images/flight13.jpg" alt="Flight Image 13" class="hero-img">
+                            <img src="../home/images/flight14.jpg" alt="Flight Image 14" class="hero-img">
+                            <img src="../home/images/fligh15.jpg" alt="Flight Image 15" class="hero-img">
                         </div>
                     </div>
                     <div class="service-content">
                         <h4>Flight Booking</h4>
-                        <p id="desc-flights">We search for the best routes and rates globally, ensuring you get the most affordable flights. Fly hassle-free with our accredited services and 24/7 support.</p>
+                        <div id="desc-flights">
+                            <p>We search, compare, and secure the best flight routes and rates worldwide, giving you
+                                access to reliable and affordable travel options. Our flight booking service ensures a
+                                smooth and stress-free experience from planning to takeoff.</p>
+                            <p><strong>What’s Included in Our Flight Booking Service:</strong></p>
+                            <ul>
+                                <li><strong>Real-time fare comparison</strong> from major airlines and trusted global
+                                    travel partners</li>
+                                <li>Assistance with <strong>one-way, round-trip, and multi-city flight bookings</strong>
+                                </li>
+                                <li><strong>Flexible rebooking, refund, and cancellation support</strong>, following
+                                    airline policies</li>
+                                <li>Guidance on <strong>baggage allowances, seat selection, and travel class
+                                        upgrades</strong></li>
+                                <li>Coordination for <strong>connecting flights, layover management, and schedule
+                                        adjustments</strong></li>
+                                <li>Support with <strong>travel requirements</strong>, including passport validity
+                                    checks and destination entry guidelines</li>
+                                <li><strong>24/7 customer service</strong> for urgent flight changes, concerns, or
+                                    updates</li>
+                            </ul>
+                            <p>Fly with confidence knowing that every booking is handled with <strong>accuracy,
+                                    transparency, and care</strong>—so you can focus on enjoying your journey.</p>
+                        </div>
                         <a href="/services/flights" class="btn btn-secondary btn-service">See More</a>
                     </div>
                 </div>
@@ -101,57 +223,95 @@
                 <div class="service-preview-card layout-right">
                     <div class="service-content">
                         <h4>Hotel & Stay Booking</h4>
-                        <p id="desc-hotels">Access a wide selection of best-value hotels, resorts, and vacation rentals tailored to your comfort and budget. Find your perfect home away from home easily.</p>
+                        <div id="desc-hotels">
+                            <p>Access a wide selection of accommodations globally—from budget rooms to luxury suites.
+                                Our hotel booking service ensures <strong>comfort, safety, and excellent value</strong>.
+                            </p>
+                            <p><strong>Included in this service:</strong></p>
+                            <ul>
+                                <li><strong>Handpicked hotels, hostels, resorts, villas, and vacation homes</strong>
+                                </li>
+                                <li><strong>Best price comparison</strong> to help you stay within your budget</li>
+                                <li><strong>Flexible booking options</strong> with free cancellation (subject to hotel
+                                    policy)</li>
+                                <li>Assistance with <strong>special requests</strong> (early check-in, breakfast
+                                    options, airport pick-up)</li>
+                                <li>Recommended stays near <strong>tourist spots, business districts, or quiet
+                                        relaxation areas</strong></li>
+                                <li>Partnership with <strong>trusted hotel providers</strong> for exclusive deals and
+                                    discounts</li>
+                            </ul>
+                            <p>Find your perfect home away from home with a booking process that is <strong>simple,
+                                    secure, and personalized</strong>.</p>
+                        </div>
                         <a href="/services/hotels" class="btn btn-secondary btn-service">See More</a>
                     </div>
                     <div class="service-slider-wrap">
-                         <div class="slider-controls">
+                        <div class="slider-controls">
                         </div>
-                        <div class="service-slider" id="slider-flights">
-                            <img src="../home/images/hotel1.jpg" alt="hotel Image 1" class="hotel-img">
-                            <img src="../home/images/hotel2.jpg" alt="hotel Image 2" class="hotel-img">
-                            <img src="../home/images/hotel3.jpg" alt="hotel Image 3" class="hotel-img">
-                            <img src="../home/images/hotel4.jpg" alt="hotel Image 4" class="hotel-img">
-                            <img src="../home/images/hotel5.jpg" alt="hotel Image 5" class="hotel-img">
-                            <img src="../home/images/hotel6.jpg" alt="hotel Image 6" class="hotel-img">
-                            <img src="../home/images/hotel7.jpg" alt="hotel Image 7" class="hotel-img">
-                            <img src="../home/images/hotel8.jpg" alt="hotel Image 8" class="hotel-img">
-                            <img src="../home/images/hotel9.jpg" alt="hotel Image 9" class="hotel-img">
-                            <img src="../home/images/hotel10.jpg" alt="hotel Image 10" class="hotel-img">
-                            <img src="../home/images/hotel11.jpg" alt="hotel Image 11" class="hotel-img">
-                            <img src="../home/images/hotel12.jpg" alt="hotel Image 12" class="hotel-img">
-                            <img src="../home/images/hotel13.jpg" alt="hotel Image 13" class="hotel-img">
-                            <img src="../home/images/hotel14.jpg" alt="hotel Image 14" class="hotel-img">
-                            <img src="../home/images/hotel15.jpg" alt="hotel Image 15" class="hotel-img">
+                        <div class="service-slider" id="slider-hotels">
+                            <img src="../home/images/Hotel1.jpg" alt="hotel Image 1" class="hero-img">
+                            <img src="../home/images/hotel2.jpg" alt="hotel Image 2" class="hero-img">
+                            <img src="../home/images/hotel3.jpg" alt="hotel Image 3" class="hero-img">
+                            <img src="../home/images/hotel4.jpg" alt="hotel Image 4" class="hero-img">
+                            <img src="../home/images/hotel5.jpg" alt="hotel Image 5" class="hero-img">
+                            <img src="../home/images/hotel6.jpg" alt="hotel Image 6" class="hero-img">
+                            <img src="../home/images/hotel7.jpg" alt="hotel Image 7" class="hero-img">
+                            <img src="../home/images/hotel8.jpg" alt="hotel Image 8" class="hero-img">
+                            <img src="../home/images/hotel9.jpg" alt="hotel Image 9" class="hero-img">
+                            <img src="../home/images/hotel10.jpg" alt="hotel Image 10" class="hero-img">
+                            <img src="../home/images/hotel11.jpg" alt="hotel Image 11" class="hero-img">
+                            <img src="../home/images/hotel12.jpg" alt="hotel Image 12" class="hero-img">
+                            <img src="../home/images/hotel13.jpg" alt="hotel Image 13" class="hero-img">
+                            <img src="../home/images/hotel14.jpg" alt="hotel Image 14" class="hero-img">
+                            <img src="../home/images/hotel15.jpg" alt="hotel Image 15" class="hero-img">
                         </div>
                     </div>
                 </div>
 
                 <div class="service-preview-card layout-left">
                     <div class="service-slider-wrap">
-                         <div class="slider-controls">
+                        <div class="slider-controls">
                         </div>
-                        <div class="service-slider" id="slider-flights">
-                            <img src="../home/images/Tour1.jpg" alt="Tour Image 1" class="Tour-img">
-                            <img src="../home/images/Tour2.jpg" alt="Tour Image 2" class="Tour-img">
-                            <img src="../home/images/Tour3.jpg" alt="Tour Image 3" class="Tour-img">
-                            <img src="../home/images/Tour4.jpg" alt="Tour Image 4" class="Tour-img">
-                            <img src="../home/images/Tour5.jpg" alt="Tour Image 5" class="Tour-img">
-                            <img src="../home/images/Tour6.jpg" alt="Tour Image 6" class="Tour-img">
-                            <img src="../home/images/Tour7.jpg" alt="Tour Image 7" class="Tour-img">
-                            <img src="../home/images/Tour8.jpg" alt="Tour Image 8" class="Tour-img">
-                            <img src="../home/images/Tour9.jpg" alt="Tour Image 9" class="Tour-img">
-                            <img src="../home/images/Tour10.jpg" alt="Tour Image 10" class="Tour-img">
-                            <img src="../home/images/Tour11.jpg" alt="Tour Image 11" class="Tour-img">
-                            <img src="../home/images/Tour12.jpg" alt="Tour Image 12" class="Tour-img">
-                            <img src="../home/images/Tour13.jpg" alt="Tour Image 13" class="Tour-img">
-                            <img src="../home/images/Tour14.jpg" alt="Tour Image 14" class="Tour-img">
-                            <img src="../home/images/Tour15.jpg" alt="Tour Image 15" class="Tour-img">
+                        <div class="service-slider" id="slider-tours">
+                            <img src="../home/images/tour1.jpg" alt="Tour Image 1" class="hero-img">
+                            <img src="../home/images/tour2.jpg" alt="Tour Image 2" class="hero-img">
+                            <img src="../home/images/tour3.jpg" alt="Tour Image 3" class="hero-img">
+                            <img src="../home/images/tour4.jpg" alt="Tour Image 4" class="hero-img">
+                            <img src="../home/images/tour5.jpg" alt="Tour Image 5" class="hero-img">
+                            <img src="../home/images/tour6.jpg" alt="Tour Image 6" class="hero-img">
+                            <img src="../home/images/tour7.jpg" alt="Tour Image 7" class="hero-img">
+                            <img src="../home/images/tour8.jpg" alt="Tour Image 8" class="hero-img">
+                            <img src="../home/images/tour9.jpg" alt="Tour Image 9" class="hero-img">
+                            <img src="../home/images/tour10.jpg" alt="Tour Image 10" class="hero-img">
+                            <img src="../home/images/tour11.jpg" alt="Tour Image 11" class="hero-img">
+                            <img src="../home/images/tour12.jpg" alt="Tour Image 12" class="hero-img">
+                            <img src="../home/images/tour13.jpg" alt="Tour Image 13" class="hero-img">
+                            <img src="../home/images/tour14.jpg" alt="Tour Image 14" class="hero-img">
+                            <img src="../home/images/tour15.jpg" alt="Tour Image 15" class="hero-img">
                         </div>
                     </div>
                     <div class="service-content">
                         <h4>Tour Packages</h4>
-                        <p id="desc-tours">Curated adventures to stunning local and international destinations. As a Via.com accredited partner, we offer reliable and exciting itineraries tailored for every explorer.</p>
+                        <div id="desc-tours">
+                            <p>We curate unforgettable travel experiences across local and international destinations.
+                                Our tours are designed for <strong>solo travelers, couples, families, and
+                                    groups</strong>.</p>
+                            <p><strong>What’s included:</strong></p>
+                            <ul>
+                                <li><strong>Fully planned itineraries</strong> with attractions, schedules, and
+                                    activities</li>
+                                <li>Options for <strong>private or group tours</strong></li>
+                                <li><strong>Transportation arrangements</strong>, including airport transfers</li>
+                                <li>Local tour guides who ensure <strong>safe and fun experiences</strong></li>
+                                <li>Packages tailored to your travel style—<strong>adventure, food, culture, luxury, or
+                                        relaxation</strong></li>
+                                <li>Custom-made tours for birthdays, honeymoons, barkada trips, and corporate events
+                                </li>
+                            </ul>
+                            <p>With our tour packages, you explore the world the stress-free way—<strong>we handle
+                                    everything, you enjoy the moment</strong>.</p>
+                        </div>
                         <a href="/services/tours" class="btn btn-secondary btn-service">See More</a>
                     </div>
                 </div>
@@ -159,28 +319,46 @@
                 <div class="service-preview-card layout-right">
                     <div class="service-content">
                         <h4>Cruising</h4>
-                        <p id="desc-cruising">Experience luxury and relaxation on the sea. Explore multiple destinations in one incredible journey. Enjoy world-class amenities and all-inclusive packages.</p>
+                        <div id="desc-cruising">
+                            <p>Experience world-class travel on the open sea with our premium cruise services.</p>
+                            <p><strong>Enjoy:</strong></p>
+                            <ul>
+                                <li><strong>All-inclusive cruise packages</strong> with accommodations, meals,
+                                    entertainment, and on-board amenities</li>
+                                <li>Choices from <strong>popular cruise lines</strong> offering routes in Asia, Europe,
+                                    the Mediterranean, Alaska, and the Caribbean</li>
+                                <li>Access to <strong>luxury features</strong> like infinity pools, theaters, fine
+                                    dining, and onboard activities</li>
+                                <li><strong>Multiple destinations in one trip</strong>—no need to pack and unpack
+                                    repeatedly</li>
+                                <li><strong>Specialized cruises</strong> such as honeymoon cruises, themed cruises,
+                                    family cruises, and more</li>
+                                <li>Assistance with <strong>passport, visa, and port documentation</strong></li>
+                            </ul>
+                            <p>Perfect for travelers who want a combination of <strong>relaxation, adventure, and scenic
+                                    exploration</strong>.</p>
+                        </div>
                         <a href="services.html#cruising" class="btn btn-secondary btn-service">See More</a>
                     </div>
                     <div class="service-slider-wrap">
-                         <div class="slider-controls">
+                        <div class="slider-controls">
                         </div>
-                        <div class="service-slider" id="slider-flights">
-                            <img src="../home/images/cruising1.jpg" alt="cruising Image 1" class="cruising-img">
-                            <img src="../home/images/cruising2.jpg" alt="cruising Image 2" class="cruising-img">
-                            <img src="../home/images/cruising3.jpg" alt="cruising Image 3" class="cruising-img">
-                            <img src="../home/images/cruising4.jpg" alt="cruising Image 4" class="cruising-img">
-                            <img src="../home/images/cruising5.jpg" alt="cruising Image 5" class="cruising-img">
-                            <img src="../home/images/cruising6.jpg" alt="cruising Image 6" class="cruising-img">
-                            <img src="../home/images/cruising7.jpg" alt="cruising Image 7" class="cruising-img">
-                            <img src="../home/images/cruising8.jpg" alt="cruising Image 8" class="cruising-img">
-                            <img src="../home/images/cruising9.jpg" alt="cruising Image 9" class="cruising-img">
-                            <img src="../home/images/cruising10.jpg" alt="cruising Image 10" class="cruising-img">
-                            <img src="../home/images/cruising11.jpg" alt="cruising Image 11" class="cruising-img">
-                            <img src="../home/images/cruising12.jpg" alt="cruising Image 12" class="cruising-img">
-                            <img src="../home/images/cruising13.jpg" alt="cruising Image 13" class="cruising-img">
-                            <img src="../home/images/cruising14.jpg" alt="cruising Image 14" class="cruising-img">
-                            <img src="../home/images/cruising15.jpg" alt="cruising Image 15" class="cruising-img">
+                        <div class="service-slider" id="slider-cruising">
+                            <img src="../home/images/cruising1.jpg" alt="cruising Image 1" class="hero-img">
+                            <img src="../home/images/cruising2.jpg" alt="cruising Image 2" class="hero-img">
+                            <img src="../home/images/cruising3.jpg" alt="cruising Image 3" class="hero-img">
+                            <img src="../home/images/cruising4.jpg" alt="cruising Image 4" class="hero-img">
+                            <img src="../home/images/cruising5.jpg" alt="cruising Image 5" class="hero-img">
+                            <img src="../home/images/cruising6.jpg" alt="cruising Image 6" class="hero-img">
+                            <img src="../home/images/cruising7.jpg" alt="cruising Image 7" class="hero-img">
+                            <img src="../home/images/cruising8.jpg" alt="cruising Image 8" class="hero-img">
+                            <img src="../home/images/cruising9.jpg" alt="cruising Image 9" class="hero-img">
+                            <img src="../home/images/cruising10.jpg" alt="cruising Image 10" class="hero-img">
+                            <img src="../home/images/cruising11.jpg" alt="cruising Image 11" class="hero-img">
+                            <img src="../home/images/cruising12.jpg" alt="cruising Image 12" class="hero-img">
+                            <img src="../home/images/cruising13.jpg" alt="cruising Image 13" class="hero-img">
+                            <img src="../home/images/cruising14.jpg" alt="cruising Image 14" class="hero-img">
+                            <img src="../home/images/cruising15.jpg" alt="cruising Image 15" class="hero-img">
                         </div>
                     </div>
                 </div>
@@ -190,83 +368,249 @@
             </svg>
         </section>
 
-         <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <div class="footer-logo">
-                    <img src="../images/homepage/logo.png" alt="Broccobae Logo" class="footer-logo-image">
-                    <span class="footer-logo-text">broccobae</span>
+        <!-- Travel Resources & Guides Section -->
+        <section id="resources" class="resources-section">
+            <div class="container">
+                <h3 class="section-title">Travel Resources & Guides</h3>
+                <p class="section-subtitle">Educational & helpful content to plan your trip</p>
+
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <div class="resource-icon">📋</div>
+                        <h4>Travel Requirements</h4>
+                        <p>Latest entry guidelines per country.</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">💰</div>
+                        <h4>Budget Tips</h4>
+                        <p>How to travel smart and save.</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">✈️</div>
+                        <h4>Recommended Airlines</h4>
+                        <p>Top carriers for comfort and value.</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">🏨</div>
+                        <h4>Hotel Categories</h4>
+                        <p>Understanding star ratings and types.</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">🌏</div>
+                        <h4>Visa-free Destinations</h4>
+                        <p>Where you can go without a visa.</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">✅</div>
+                        <h4>Travel Checklists</h4>
+                        <p>Don't forget the essentials.</p>
+                    </div>
+                    <div class="resource-card">
+                        <div class="resource-icon">🛡️</div>
+                        <h4>Safety Tips</h4>
+                        <p>Stay safe while exploring.</p>
+                    </div>
                 </div>
-                <p class="footer-description">Your ultimate destination for delicious vegan recipes, meal planning, and plant-based community.</p>
-            </div>
-            <div class="footer-section">
-                <h4 class="footer-title">Quick Links</h4>
-                <ul class="footer-links">
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="recipes.html">Recipes</a></li>
-                    <li><a href="meal-plan.html">Meal Plan</a></li>
-                    <li><a href="cuisine.html">Cuisine</a></li>
-                    <li><a href="community.html">Community</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4 class="footer-title">About Us</h4>
-                <ul class="footer-links">
-                    <li><a href="/About Us/">About</a></li>
-                    <li><a href="/About Us/">Our Mission</a></li>
-                    <li><a href="/About Us/">Our Values</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4 class="footer-title">Legal</h4>
-                <ul class="footer-links">
-                    <li><a href="/legal/">Terms &amp; Conditions</a></li>
-                    <li><a href="/legal/">Privacy Policy</a></li>
-                    <li><a href="/legal/">Cookie Policy</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4 class="footer-title">Contact</h4>
-                <ul class="footer-contact">
-                    <li><i class="fas fa-phone"></i> +8170-123-4312</li>
-                    <li><i class="fas fa-envelope"></i> natours-travel.ph@gmail.com</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Manila, Philippines </li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-social">
-            <div class="social-container">
-                <h4 class="footer-title">Follow Us</h4>
-                <div class="social-icons">
-                    </a>
-                    <a href="https://www.instagram.com/broccobae/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Instagram">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/broccobae" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on Facebook">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
-                        </svg>
-                    </a>
-                    <a href="https://www.tiktok.com/@broccobae" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on TikTok">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"></path>
-                        </svg>
-                    </a>
-                    <a href="https://www.youtube.com/@broccobae" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Follow us on YouTube">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
-                        </svg>
-                    </a>
-                    </a>
+
+                <div class="text-center" style="margin-top: 3rem;">
+                    <a href="/guidelines/" class="btn btn-primary">See More Guides</a>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Natours-Travel-And-Tour-Services @ Natours-Trvael.ph All rights reserved.</p>
-        </div>
-    </footer>
-    <script src="/home/script.js"></script>
-    </body>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h3 class="section-title">Get In Touch</h3>
+                <p class="section-subtitle">Have questions? We're here to help you plan your perfect journey</p>
+
+                <div class="contact-wrapper">
+                    <!-- Left: Accreditation Images -->
+                    <div class="accreditation-grid">
+                        <h4 class="accreditation-title">Our Accreditations & Partnerships</h4>
+                        <div class="accreditation-images">
+                            <div class="accreditation-item">
+                                <img src="../home/images/accreditation-1.jpg" alt="Accreditation 1">
+                                <p>Via.com Partner</p>
+                            </div>
+                            <div class="accreditation-item">
+                                <img src="../home/images/accreditation-2.jpg" alt="Accreditation 2">
+                                <p>IATA Certified</p>
+                            </div>
+                            <div class="accreditation-item">
+                                <img src="../home/images/accreditation-3.jpg" alt="Accreditation 3">
+                                <p>DOT Accredited</p>
+                            </div>
+                            <div class="accreditation-item">
+                                <img src="../home/images/accreditation-4.jpg" alt="Accreditation 4">
+                                <p>Travel Agency License</p>
+                            </div>
+                            <div class="accreditation-item">
+                                <img src="../home/images/accreditation-5.jpg" alt="Accreditation 5">
+                                <p>Safety Certified</p>
+                            </div>
+                            <div class="accreditation-item">
+                                <img src="../home/images/accreditation-6.jpg" alt="Accreditation 6">
+                                <p>Industry Member</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required
+                                    placeholder="your.email@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+63 XXX XXX XXXX">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" required
+                                    placeholder="What is this regarding?">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required
+                                    placeholder="Tell us about your travel plans or questions..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../home/images/Logo.png" alt="Natours Travel Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">Natours Travel.Ph</span>
+                    </div>
+                    <p class="footer-description">Your ultimate destination for unforgettable travel experiences. We
+                        craft journeys tailored for every Filipino traveler.</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">About Us</h4>
+                    <ul class="footer-links">
+                        <li><a href="../about-us/index.html">About</a></li>
+                        <li><a href="../about-us/index.html#mission">Our Mission</a></li>
+                        <li><a href="../about-us/index.html#values">Our Values</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="../legal/index.html">Terms & Conditions</a></li>
+                        <li><a href="../legal/index.html#privacy">Privacy Policy</a></li>
+                        <li><a href="../legal/index.html#cookies">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                </path>
+                            </svg>
+                            +639369418559
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            natourstravel.ph@gmail.com
+                        </li>
+                        <li>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            Manila, Philippines
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social">
+                <div class="social-container">
+                    <h4 class="footer-title">Follow Us</h4>
+                    <div class="social-icons">
+                        </a>
+                        <a href="https://www.instagram.com/broccobae/" target="_blank" rel="noopener noreferrer"
+                            class="social-icon" aria-label="Follow us on Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/broccobae" target="_blank" rel="noopener noreferrer"
+                            class="social-icon" aria-label="Follow us on Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://www.tiktok.com/@broccobae" target="_blank" rel="noopener noreferrer"
+                            class="social-icon" aria-label="Follow us on TikTok">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@broccobae" target="_blank" rel="noopener noreferrer"
+                            class="social-icon" aria-label="Follow us on YouTube">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a href="https://wa.me/639369418559" target="_blank" rel="noopener noreferrer"
+                            class="social-icon" aria-label="Chat on WhatsApp">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+                            </svg>
+                        </a>
+                        <a href="viber://chat?number=%2B639369418559" target="_blank" rel="noopener noreferrer"
+                            class="social-icon" aria-label="Chat on Viber">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M21.526 17.463c-.27-.905-1.356-1.63-1.943-1.923-.587-.293-1.35-.284-1.87.435-.36.496-.778 1.143-1.16 1.143-.332 0-1.036-.567-2.024-1.556-.99-1.01-1.57-1.72-1.57-2.05 0-.383.673-.818 1.17-1.178.718-.52.728-1.285.435-1.872-.293-.587-1.018-1.673-1.923-1.943-1.277-.38-2.396.35-2.787 1.18-.29.615-.324 1.29.12 2.18.91 1.826 3.08 4.996 6.86 6.885.89.445 1.565.41 2.18.12.83-.39 1.56-1.51 1.18-2.787l-.668-1.336zM19.63 9.48c-.22-.22-.577-.22-.796 0-.22.22-.22.577 0 .796.96.96 1.49 2.236 1.49 3.594 0 .31.252.563.563.563.31 0 .563-.252.563-.563 0-1.66-1.15-3.74-2.82-4.39zM17.97 11.14c-.22-.22-.577-.22-.796 0-.22.22-.22.577 0 .796.516.517.8 1.204.8 1.934 0 .31.252.563.563.563.31 0 .563-.252.563-.563 0-1.03-.4-2.01-1.13-2.73zM22.5 13.87c0-2.42-1.68-5.45-4.11-6.41-.3-.11-.63.04-.74.34-.11.3.04.63.34.74 1.83.72 3.38 3.44 3.38 5.33 0 .31.252.563.563.563.31 0 .563-.252.563-.563z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Natours-Travel-And-Tour-Services @ Natours-Travel.Ph All rights reserved.</p>
+            </div>
+        </footer>
+        <script src="/home/script.js"></script>
+</body>
+
 </html>

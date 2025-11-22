@@ -31,55 +31,59 @@ function smoothScroll() {
     });
 }
 
-function performSearch() {
-    const searchInput = document.querySelector('.search-input');
-    const query = searchInput.value.trim();
-    
-    if (query) {
-        // Redirect to recipes page with search query
-        window.location.href = `src/pages/recipes?search=${encodeURIComponent(query)}`;
+
+// Add scroll effect to header
+window.addEventListener('scroll', function () {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
     }
-}
-    
-    images.forEach(img => imageObserver.observe(img));
-    
-    // Add scroll effect to header
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+});
 
-    // --- 2. Image Slider Functionality (Automatic and Manual) ---
-    const sliders = document.querySelectorAll('.service-slider');
-    
-    sliders.forEach(slider => {
-        let currentIndex = 0;
-        const images = slider.querySelectorAll('.hero-img');
-        const totalImages = images.length;
-        const sliderId = slider.id.split('-')[1];
+// --- 2. Image Slider Functionality with Staggered Timing ---
+// Configuration for each slider with unique delays
+const sliderConfigs = [
+    { selector: '#slider-flights', delay: 0 },      // Starts immediately
+    { selector: '#slider-hotels', delay: 2000 },    // Starts after 2 seconds
+    { selector: '#slider-tours', delay: 4000 },     // Starts after 4 seconds
+    { selector: '#slider-cruising', delay: 6000 }   // Starts after 6 seconds
+];
 
-        const updateSlider = () => {
-            const offset = -currentIndex * images[0].offsetWidth;
-            slider.style.transform = `translateX(${offset}px)`;
-        };
+sliderConfigs.forEach(config => {
+    const slider = document.querySelector(config.selector);
+    if (!slider) {
+        console.error(`Slider not found: ${config.selector}`);
+        return;
+    }
+    console.log(`Initializing slider: ${config.selector}`);
 
-        const nextSlide = () => {
-            currentIndex = (currentIndex + 1) % totalImages;
-            updateSlider();
-        };
+    let currentIndex = 0;
+    const images = slider.querySelectorAll('.hero-img');
+    const totalImages = images.length;
 
-        const prevSlide = () => {
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-            updateSlider();
-        };
+    if (totalImages === 0) return;
 
-        // Automatic sliding (every 4 seconds)
+    const updateSlider = () => {
+        const offset = -currentIndex * images[0].offsetWidth;
+        slider.style.transform = `translateX(${offset}px)`;
+    };
+
+    const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateSlider();
+    };
+
+    // Start the slider after the configured delay
+    setTimeout(() => {
+        // Initial update
+        updateSlider();
+
+        // Auto-advance every 3 seconds
         setInterval(nextSlide, 3000);
-        
-        // Handle resizing (if the window resizes, recalculate offset)
-        window.addEventListener('resize', updateSlider);
-    });
+    }, config.delay);
+
+    // Handle window resizing
+    window.addEventListener('resize', updateSlider);
+});
