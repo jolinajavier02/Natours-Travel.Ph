@@ -229,6 +229,7 @@ body {
 @media (min-width: 992px) {
     .service-body {
         flex-direction: row;
+        flex-wrap: wrap;
         align-items: flex-start;
         gap: 4rem;
     }
@@ -236,6 +237,34 @@ body {
     /* Zig-Zag Layout */
     .service-section:nth-child(even) .service-body {
         flex-direction: row-reverse;
+    }
+
+    /* Ensure full width for the booking process when it wraps */
+    .service-section:nth-child(even) .service-body .booking-process-detailed {
+        /* Reset direction for the full-width item so it doesn't look reversed */
+        /* Actually, if the container is row-reverse, the items are 1, 2, 3 reversed. 
+            If I have Slider, Details, Booking.
+            Row reverse: Booking, Details, Slider.
+            That's not what we want. We want Slider | Details, then Booking below.
+            
+            If I use flex-wrap with row-reverse:
+            It will fill from right to left.
+            Row 1: Slider (Right), Details (Left) ?? No.
+            
+            If flex-direction is row-reverse:
+            Items are laid out right-to-left.
+            1. Slider
+            2. Details
+            3. Booking
+            
+            Visual:
+            [Booking] (if it wraps to top?) No, wrap flows down.
+            
+            Row 1: [Details] [Slider] (Right aligned)
+            Row 2: [Booking]
+            
+            This seems okay.
+         */
     }
 }
 
@@ -684,12 +713,20 @@ body {
     box-shadow: 0 6px 16px rgba(9, 113, 61, 0.15);
 }
 
-.process-step h4 {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
+/* How to Book Section Grid */
+.how-to-book-section .process-steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
 }
+
+@media (max-width: 768px) {
+    .how-to-book-section .process-steps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 .process-step p {
     color: var(--text-light);
