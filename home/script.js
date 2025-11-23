@@ -48,7 +48,8 @@ const sliderConfigs = [
     { selector: '#slider-flights', delay: 0 },      // Starts immediately
     { selector: '#slider-hotels', delay: 2000 },    // Starts after 2 seconds
     { selector: '#slider-tours', delay: 4000 },     // Starts after 4 seconds
-    { selector: '#slider-cruising', delay: 6000 }   // Starts after 6 seconds
+    { selector: '#slider-cruising', delay: 6000 },  // Starts after 6 seconds
+    { selector: '#slider-visa', delay: 8000 }       // Starts after 8 seconds
 ];
 
 sliderConfigs.forEach(config => {

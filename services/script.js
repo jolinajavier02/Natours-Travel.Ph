@@ -50,4 +50,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initSlider('slider-hotels');
     initSlider('slider-tours');
     initSlider('slider-cruise');
+    initSlider('slider-visa');
 });

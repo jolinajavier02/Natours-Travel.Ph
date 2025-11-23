@@ -520,6 +520,69 @@ body {
     color: var(--primary-color);
 }
 
+/* Visa Assistance Specific Styles */
+.important-note {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-radius: 5px;
+    color: #856404;
+}
+
+.important-guidelines {
+    margin: 3rem 0;
+    padding: 2rem;
+    background-color: #f0f7f4;
+    border-radius: 12px;
+}
+
+.important-guidelines>h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-left: none;
+    padding-left: 0;
+}
+
+.important-guidelines>p {
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+}
+
+.guideline-box {
+    background-color: var(--white);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.guideline-box h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.guideline-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.guideline-box ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.guideline-box ul li::before {
+    content: '→';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
 @media (max-width: 768px) {
     .footer-content {
         grid-template-columns: 1fr;
