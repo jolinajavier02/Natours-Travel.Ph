@@ -30,7 +30,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const serviceTypeSelect = document.getElementById('serviceType');
     const flightFields = document.getElementById('flightFields');
     const hotelFields = document.getElementById('hotelFields');
-    const tourCruiseFields = document.getElementById('tourCruiseFields');
+    const tourFields = document.getElementById('tourFields');
+    const cruiseFields = document.getElementById('cruiseFields');
+    const visaFields = document.getElementById('visaFields');
 
     if (serviceTypeSelect) {
         serviceTypeSelect.addEventListener('change', function () {
@@ -39,15 +41,21 @@ document.addEventListener('DOMContentLoaded', function () {
             // Hide all conditional sections first
             flightFields.style.display = 'none';
             hotelFields.style.display = 'none';
-            tourCruiseFields.style.display = 'none';
+            tourFields.style.display = 'none';
+            cruiseFields.style.display = 'none';
+            visaFields.style.display = 'none';
 
             // Show relevant section based on selection
             if (selectedService === 'flight') {
                 flightFields.style.display = 'block';
             } else if (selectedService === 'hotel') {
                 hotelFields.style.display = 'block';
-            } else if (selectedService === 'tour' || selectedService === 'cruise') {
-                tourCruiseFields.style.display = 'block';
+            } else if (selectedService === 'tour') {
+                tourFields.style.display = 'block';
+            } else if (selectedService === 'cruise') {
+                cruiseFields.style.display = 'block';
+            } else if (selectedService === 'visa') {
+                visaFields.style.display = 'block';
             }
         });
     }
