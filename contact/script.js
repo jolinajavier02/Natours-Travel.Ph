@@ -34,98 +34,125 @@ function smoothScroll() {
 function performSearch() {
     const searchInput = document.querySelector('.search-input');
     const query = searchInput.value.trim();
-    
+
     if (query) {
         // Redirect to recipes page with search query
         window.location.href = `src/pages/recipes?search=${encodeURIComponent(query)}`;
     }
 }
-    
-    images.forEach(img => imageObserver.observe(img));
-    
-    // Add scroll effect to header
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
 
-    // --- 2. Image Slider Functionality (Automatic and Manual) ---
-    const sliders = document.querySelectorAll('.service-slider');
-    
-    sliders.forEach(slider => {
-        let currentIndex = 0;
-        const images = slider.querySelectorAll('.hero-img');
-        const totalImages = images.length;
-        const sliderId = slider.id.split('-')[1];
+images.forEach(img => imageObserver.observe(img));
 
-        const updateSlider = () => {
-            const offset = -currentIndex * images[0].offsetWidth;
-            slider.style.transform = `translateX(${offset}px)`;
-        };
+// Add scroll effect to header
+window.addEventListener('scroll', function () {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
 
-        const nextSlide = () => {
-            currentIndex = (currentIndex + 1) % totalImages;
-            updateSlider();
-        };
+// --- 2. Image Slider Functionality (Automatic and Manual) ---
+const sliders = document.querySelectorAll('.service-slider');
 
-        const prevSlide = () => {
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-            updateSlider();
-        };
+sliders.forEach(slider => {
+    let currentIndex = 0;
+    const images = slider.querySelectorAll('.hero-img');
+    const totalImages = images.length;
+    const sliderId = slider.id.split('-')[1];
 
-        // Automatic sliding (every 4 seconds)
-        setInterval(nextSlide, 3000);
-        
-        // Handle resizing (if the window resizes, recalculate offset)
-        window.addEventListener('resize', updateSlider);
-    });
+    const updateSlider = () => {
+        const offset = -currentIndex * images[0].offsetWidth;
+        slider.style.transform = `translateX(${offset}px)`;
+    };
+
+    const nextSlide = () => {
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateSlider();
+    };
+
+    const prevSlide = () => {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        updateSlider();
+    };
+
+    // Automatic sliding (every 4 seconds)
+    setInterval(nextSlide, 3000);
+
+    // Handle resizing (if the window resizes, recalculate offset)
+    window.addEventListener('resize', updateSlider);
+});
 // Contact Form Handling
 const contactForm = document.getElementById('contact-form');
 const budgetSlider = document.getElementById('budget');
 const budgetValue = document.getElementById('budget-value');
 
 if (budgetSlider && budgetValue) {
-    budgetSlider.addEventListener('input', function() {
+    budgetSlider.addEventListener('input', function () {
         budgetValue.textContent = parseInt(this.value).toLocaleString();
     });
 }
 
 if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
-        // Basic validation
+
+        // Collect form data
         const fullname = document.getElementById('fullname').value.trim();
         const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
         const service = document.getElementById('service').value;
+        const destination = document.getElementById('destination').value.trim();
+        const travelDate = document.getElementById('travel-date').value;
+        const travelers = document.getElementById('travelers').value;
+        const budget = document.getElementById('budget').value;
         const message = document.getElementById('message').value.trim();
-        
+        const newsletter = document.getElementById('newsletter').checked;
+
+        // Validation
         if (!fullname || !email || !service || !message) {
-            alert('Please fill in all required fields');
+            alert('Please fill in all required fields (Name, Email, Service, and Message)');
             return;
         }
-        
+
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             alert('Please enter a valid email address');
             return;
         }
-        
+
+        // Create WhatsApp message
+        let whatsappMsg = `*Contact Form Inquiry*\n\n`;
+        whatsappMsg += `*From:* ${fullname}\n`;
+        whatsappMsg += `*Email:* ${email}\n`;
+        if (phone) whatsappMsg += `*Phone:* ${phone}\n`;
+        whatsappMsg += `\n*Service Interest:* ${service}\n`;
+        if (destination) whatsappMsg += `*Destination:* ${destination}\n`;
+        if (travelDate) whatsappMsg += `*Travel Date:* ${travelDate}\n`;
+        if (travelers) whatsappMsg += `*Number of Travelers:* ${travelers}\n`;
+        if (budget) whatsappMsg += `*Budget:* ₱${parseInt(budget).toLocaleString()}\n`;
+        whatsappMsg += `\n*Message:*\n${message}\n`;
+        if (newsletter) whatsappMsg += `\n✓ Subscribed to newsletter`;
+
+        // Encode and open WhatsApp
+        const encodedMessage = encodeURIComponent(whatsappMsg);
+        const whatsappURL = `https://wa.me/639369418559?text=${encodedMessage}`;
+
+        // Open WhatsApp in new tab
+        window.open(whatsappURL, '_blank');
+
         // Show success message
         contactForm.style.display = 'none';
         document.getElementById('form-success').style.display = 'block';
-        
-        // In a real application, you would send the form data to a server here
-        console.log('Form submitted:', {
-            fullname,
-            email,
-            service,
-            message
-        });
+
+        // Reset form after 3 seconds
+        setTimeout(() => {
+            contactForm.reset();
+            contactForm.style.display = 'block';
+            document.getElementById('form-success').style.display = 'none';
+            budgetValue.textContent = '50,000';
+        }, 3000);
     });
 }
