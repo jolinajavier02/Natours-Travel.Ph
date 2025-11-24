@@ -60,69 +60,119 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Form submission handler
+    // Form submission handler with EmailJS
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
         bookingForm.addEventListener('submit', function (e) {
-            // Check if Formspree is configured
-            const formAction = this.getAttribute('action');
+            e.preventDefault();
 
-            if (!formAction || formAction.includes('YOUR_FORM_ID')) {
-                // Formspree not configured - use WhatsApp fallback
-                e.preventDefault();
+            // Show loading state
+            const submitBtn = this.querySelector('.btn-submit');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
 
-                // Collect form data
-                const formData = new FormData(this);
-                const formObject = {};
-                formData.forEach((value, key) => {
-                    formObject[key] = value;
-                });
+            // Collect form data
+            const formData = new FormData(this);
+            const templateParams = {
+                firstName: formData.get('firstName'),
+                middleName: formData.get('middleName') || 'N/A',
+                lastName: formData.get('lastName'),
+                dateOfBirth: formData.get('dateOfBirth'),
+                gender: formData.get('gender'),
+                email: formData.get('email'),
+                phone: formData.get('phone'),
+                alternateContact: formData.get('alternateContact') || 'N/A',
+                serviceType: formData.get('serviceType'),
+                destination: formData.get('destination'),
+                travelDateStart: formData.get('travelDateStart'),
+                travelDateEnd: formData.get('travelDateEnd'),
+                numAdults: formData.get('numAdults'),
+                numChildren: formData.get('numChildren'),
+                // Service-specific fields
+                departureCity: formData.get('departureCity') || 'N/A',
+                arrivalCity: formData.get('arrivalCity') || 'N/A',
+                flightClass: formData.get('flightClass') || 'N/A',
+                flightType: formData.get('flightType') || 'N/A',
+                roomType: formData.get('roomType') || 'N/A',
+                bedPreference: formData.get('bedPreference') || 'N/A',
+                numNights: formData.get('numNights') || 'N/A',
+                numRooms: formData.get('numRooms') || 'N/A',
+                preferredLocation: formData.get('preferredLocation') || 'N/A',
+                tourType: formData.get('tourType') || 'N/A',
+                tourPackage: formData.get('tourPackage') || 'N/A',
+                tourActivities: formData.get('tourActivities') || 'N/A',
+                tourBudget: formData.get('tourBudget') || 'N/A',
+                cruiseLine: formData.get('cruiseLine') || 'N/A',
+                cabinType: formData.get('cabinType') || 'N/A',
+                cruiseDestination: formData.get('cruiseDestination') || 'N/A',
+                visaCountry: formData.get('visaCountry') || 'N/A',
+                visaType: formData.get('visaType') || 'N/A',
+                visaAppointment: formData.get('visaAppointment') || 'N/A',
+                additionalDetails: formData.get('additionalDetails') || 'None'
+            };
 
-                // Create WhatsApp message
-                let message = `*New Booking Inquiry*\n\n`;
-                message += `*Personal Information:*\n`;
-                message += `Name: ${formObject.firstName} ${formObject.middleName || ''} ${formObject.lastName}\n`;
-                message += `DOB: ${formObject.dateOfBirth}\n`;
-                message += `Gender: ${formObject.gender}\n`;
-                message += `Email: ${formObject.email}\n`;
-                message += `Phone: ${formObject.phone}\n`;
-                if (formObject.alternateContact) message += `Alt Contact: ${formObject.alternateContact}\n`;
+            // Send email using EmailJS
+            emailjs.send('service_wwjqu3l', 'template_booking', templateParams)
+                .then(function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
 
-                message += `\n*Trip Details:*\n`;
-                message += `Service: ${formObject.serviceType}\n`;
-                message += `Destination: ${formObject.destination}\n`;
-                message += `Start Date: ${formObject.travelDateStart}\n`;
-                message += `End Date: ${formObject.travelDateEnd}\n`;
-                message += `Travelers: ${formObject.numAdults} Adults, ${formObject.numChildren} Children\n`;
-
-                if (formObject.additionalDetails) {
-                    message += `\n*Additional Details:*\n${formObject.additionalDetails}\n`;
-                }
-
-                // Encode message for WhatsApp
-                const whatsappMessage = encodeURIComponent(message);
-                const whatsappURL = `https://wa.me/639369418559?text=${whatsappMessage}`;
-
-                // Open WhatsApp
-                window.open(whatsappURL, '_blank');
-
-                // Show confirmation
-                alert('Redirecting to WhatsApp to send your inquiry. Please click Send in WhatsApp to complete your booking request.');
-            } else {
-                // Formspree is configured - let it submit normally
-                // Show loading message
-                const submitBtn = this.querySelector('.btn-submit');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = 'Sending...';
-                submitBtn.disabled = true;
-
-                // Form will submit to Formspree
-                // On success, Formspree will show a thank you page
-                setTimeout(() => {
+                    // Reset button
                     submitBtn.textContent = originalText;
                     submitBtn.disabled = false;
-                }, 3000);
-            }
+
+                    // Show success message
+                    alert('Thank you for your booking inquiry! We have received your request and will contact you shortly via email or phone to confirm your booking details and provide a quotation.');
+
+                    // Reset form
+                    bookingForm.reset();
+
+                    // Reset travelers display
+                    const travelersInput = document.getElementById('travelersInput');
+                    if (travelersInput) {
+                        travelersInput.value = '1 Adult, 0 Children';
+                    }
+                    const adultsCount = document.getElementById('adultsCount');
+                    const childrenCount = document.getElementById('childrenCount');
+                    if (adultsCount) adultsCount.innerText = '1';
+                    if (childrenCount) childrenCount.innerText = '0';
+
+                }, function (error) {
+                    console.log('FAILED...', error);
+
+                    // Reset button
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+
+                    // Show error and offer WhatsApp fallback
+                    if (confirm('There was an error sending your inquiry via email. Would you like to send it via WhatsApp instead?')) {
+                        // Create WhatsApp message
+                        let message = `*New Booking Inquiry*\n\n`;
+                        message += `*Personal Information:*\n`;
+                        message += `Name: ${templateParams.firstName} ${templateParams.middleName} ${templateParams.lastName}\n`;
+                        message += `DOB: ${templateParams.dateOfBirth}\n`;
+                        message += `Gender: ${templateParams.gender}\n`;
+                        message += `Email: ${templateParams.email}\n`;
+                        message += `Phone: ${templateParams.phone}\n`;
+                        if (templateParams.alternateContact !== 'N/A') message += `Alt Contact: ${templateParams.alternateContact}\n`;
+
+                        message += `\n*Trip Details:*\n`;
+                        message += `Service: ${templateParams.serviceType}\n`;
+                        message += `Destination: ${templateParams.destination}\n`;
+                        message += `Start Date: ${templateParams.travelDateStart}\n`;
+                        message += `End Date: ${templateParams.travelDateEnd}\n`;
+                        message += `Travelers: ${templateParams.numAdults} Adults, ${templateParams.numChildren} Children\n`;
+
+                        if (templateParams.additionalDetails !== 'None') {
+                            message += `\n*Additional Details:*\n${templateParams.additionalDetails}\n`;
+                        }
+
+                        // Encode and open WhatsApp
+                        const whatsappMessage = encodeURIComponent(message);
+                        const whatsappURL = `https://wa.me/639369418559?text=${whatsappMessage}`;
+                        window.open(whatsappURL, '_blank');
+                    }
+                });
         });
     }
 
