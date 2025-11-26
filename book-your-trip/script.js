@@ -136,9 +136,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 details = formData.get('visaSpecialRequests') || 'None';
             }
 
-            // Append traveler counts to details as requested
-            const numAdults = formData.get('numAdults');
-            const numChildren = formData.get('numChildren');
+            // Explicitly capture traveler counts
+            const numAdults = formData.get('numAdults') || '1';
+            const numChildren = formData.get('numChildren') || '0';
+
+            // Append traveler counts to details so it appears in the email body even if the template is missing variables
             const travelerInfo = `Travelers: ${numAdults} Adults, ${numChildren} Children`;
 
             if (details === 'None' || !details) {
@@ -197,6 +199,45 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Show success message
                     alert('Thank you for your booking inquiry! We have received your request and will contact you shortly via email or phone to confirm your booking details and provide a quotation.');
+
+                    // --- AUTOMATIC WHATSAPP REDIRECT ---
+                    // Create WhatsApp message with full details
+                    let message = `*New Booking Inquiry*\n\n`;
+                    message += `*Personal Information:*\n`;
+                    message += `Name: ${templateParams.firstName} ${templateParams.middleName} ${templateParams.lastName}\n`;
+                    message += `DOB: ${templateParams.dateOfBirth}\n`;
+                    message += `Gender: ${templateParams.gender}\n`;
+                    message += `Email: ${templateParams.email}\n`;
+                    message += `Phone: ${templateParams.phone}\n`;
+                    if (templateParams.alternateContact !== 'N/A') message += `Alt Contact: ${templateParams.alternateContact}\n`;
+
+                    message += `\n*Trip Details:*\n`;
+                    message += `Service: ${templateParams.serviceType}\n`;
+                    message += `Destination: ${templateParams.destination}\n`;
+                    message += `Start Date: ${templateParams.travelDateStart}\n`;
+                    message += `End Date: ${templateParams.travelDateEnd}\n`;
+                    message += `Travelers: ${templateParams.numAdults} Adults, ${templateParams.numChildren} Children\n`;
+
+                    // Service Specifics
+                    if (templateParams.serviceType === 'flight') {
+                        message += `Departure: ${templateParams.departureCity}\n`;
+                        message += `Arrival: ${templateParams.arrivalCity}\n`;
+                        message += `Class: ${templateParams.flightClass}\n`;
+                        message += `Type: ${templateParams.flightType}\n`;
+                    } else if (templateParams.serviceType === 'hotel') {
+                        message += `Room: ${templateParams.roomType}\n`;
+                        message += `Nights: ${templateParams.numNights}\n`;
+                    }
+
+                    if (templateParams.additionalDetails !== 'None') {
+                        message += `\n*Additional Details:*\n${templateParams.additionalDetails}\n`;
+                    }
+
+                    // Encode and open WhatsApp
+                    const whatsappMessage = encodeURIComponent(message);
+                    const whatsappURL = `https://wa.me/639369418559?text=${whatsappMessage}`;
+                    window.open(whatsappURL, '_blank');
+                    // -----------------------------------
 
                     // Reset form
                     bookingForm.reset();
