@@ -1,3 +1,4 @@
+
 // Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -66,35 +67,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Flight Type Logic (One-way vs Round-trip vs Multi-city)
+    // Flight Type Logic (One-way vs Round-trip)
     const flightTypeSelect = document.getElementById('flightType');
     const flightReturnDateInput = document.getElementById('flightReturnDate');
-    const multiCitySection = document.getElementById('multiCitySection');
 
     if (flightTypeSelect && flightReturnDateInput) {
         function updateFlightTypeState() {
             const type = flightTypeSelect.value;
 
             if (type === 'one-way') {
-                // One-way: Disable return date, hide multi-city
+                // One-way: Disable return date
                 flightReturnDateInput.disabled = true;
                 flightReturnDateInput.style.opacity = '0.5';
                 flightReturnDateInput.style.cursor = 'not-allowed';
                 flightReturnDateInput.value = '';
-                if (multiCitySection) multiCitySection.style.display = 'none';
-            } else if (type === 'multi-city') {
-                // Multi-city: Disable return date (ambiguous), show multi-city details
-                flightReturnDateInput.disabled = true;
-                flightReturnDateInput.style.opacity = '0.5';
-                flightReturnDateInput.style.cursor = 'not-allowed';
-                flightReturnDateInput.value = '';
-                if (multiCitySection) multiCitySection.style.display = 'block';
             } else {
-                // Round-trip (default): Enable return date, hide multi-city
+                // Round-trip (default): Enable return date
                 flightReturnDateInput.disabled = false;
                 flightReturnDateInput.style.opacity = '1';
                 flightReturnDateInput.style.cursor = 'default';
-                if (multiCitySection) multiCitySection.style.display = 'none';
             }
         }
 
@@ -130,14 +121,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 startDate = formData.get('flightDepartureDate') || 'N/A';
                 endDate = formData.get('flightReturnDate') || 'N/A';
                 details = formData.get('flightSpecialRequests') || 'None';
-
-                // Add multi-city details if applicable
-                const flightType = formData.get('flightType');
-                const multiCityInfo = formData.get('multiCityDetails');
-                if (flightType === 'multi-city' && multiCityInfo) {
-                    if (details === 'None') details = '';
-                    details += `\n\nMulti-city Itinerary:\n${multiCityInfo}`;
-                }
             } else if (serviceType === 'hotel') {
                 startDate = formData.get('checkInDate') || 'N/A';
                 endDate = formData.get('checkOutDate') || 'N/A';
