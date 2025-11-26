@@ -235,8 +235,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     // Encode and open WhatsApp
                     const whatsappMessage = encodeURIComponent(message);
-                    const whatsappURL = `https://wa.me/639369418559?text=${whatsappMessage}`;
-                    window.open(whatsappURL, '_blank');
+                    // Using api.whatsapp.com for better compatibility
+                    const whatsappURL = `https://api.whatsapp.com/send?phone=639369418559&text=${whatsappMessage}`;
+
+                    // Open in new tab
+                    const win = window.open(whatsappURL, '_blank');
+
+                    // Fallback if popup blocked
+                    if (!win) {
+                        alert('Please allow popups to open WhatsApp with your booking details.');
+                        window.location.href = whatsappURL;
+                    }
                     // -----------------------------------
 
                     // Reset form
